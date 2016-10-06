@@ -10,4 +10,4 @@ local getTotalFreeSpace = display.newText( "Total Free Space mb:"..moreInfo.getT
 
 local getNetworkStatus = display.newText( "Network Status:"..moreInfo.getNetworkStatus(), display.contentCenterX, display.contentCenterY-20, native.systemFontBold, 15) 
 
-local getPlaform = display.newText( "Plaform:"..moreInfo.getPlaform(), display.contentCenterX, display.contentCenterY, native.systemFontBold, 15) 
+local getPlaform = display.newText( "Plaform:"..moreInfo.getPlatform(), display.contentCenterX, display.contentCenterY, native.systemFontBold, 15) 
