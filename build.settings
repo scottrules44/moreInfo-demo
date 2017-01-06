@@ -41,7 +41,7 @@ settings =
 		["plugin.moreInfo"] =
         {
             -- required
-            publisherId = "com.scottrules44",
+            publisherId = "tech.scotth",
         },
     },
 }
