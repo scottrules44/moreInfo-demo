@@ -32,3 +32,5 @@ local isHeadsetPluggedIn = display.newText( "Is headset plugged in:"..tostring(m
 timer.performWithDelay(1000, function()
     isHeadsetPluggedIn.text = "Is headset plugged in:"..tostring(moreInfo.isHeadsetPluggedIn())
 end, -1)
+
+local isMusicPlaying = display.newText( "Is music playing:"..tostring(moreInfo.isMusicPlaying()), display.contentCenterX, display.contentCenterY+100, native.systemFontBold, 15)
