@@ -7,7 +7,10 @@ local testField = native.newTextField( display.contentCenterX, display.contentCe
 
 local scale0X= ((display.actualContentWidth- display.contentWidth)*.5)*-1
 local scale0Y= ((display.actualContentHeight- display.contentHeight)*.5)*-1
-local keyboardWidth, keyboardHeight = moreInfo.getKeyboardSize()
+local keyboardWidth, keyboardHeight = 0,0
+if (type(moreInfo.getKeyboardSize())== "number") then
+    keyboardWidth, keyboardHeight = moreInfo.getKeyboardSize()
+end
 local topOfKeyboard =  display.newText( "Top", display.contentCenterX, keyboardHeight+10, native.systemFontBold, 15)
 topOfKeyboard:setFillColor(0,0,1)
 local keyboardSize = display.newText( "Keyboard Height/Width:"..keyboardWidth.."/"..keyboardHeight, display.contentCenterX, display.contentCenterY-120, native.systemFontBold, 12)
@@ -22,11 +25,10 @@ local getTotalFreeSpace = display.newText( "Total Free Space mb:"..moreInfo.getT
 
 local getNetworkStatus = display.newText( "Network Status:"..moreInfo.getNetworkStatus(), display.contentCenterX, display.contentCenterY-20, native.systemFontBold, 15) 
 
-local getPlaform = display.newText( "Plaform:"..moreInfo.getPlatform(), display.contentCenterX, display.contentCenterY, native.systemFontBold, 15)
-
+local getPlatform = display.newText( "Plaform:"..moreInfo.getPlatform(), display.contentCenterX, display.contentCenterY, native.systemFontBold, 15)
 
 timer.performWithDelay(2000, function() -- give a 2 second rest before calling
-    if moreInfo.getPlatform() and moreInfo.getPlatform() == "iOS" then
+    if moreInfo.getPlatform() ~= nil and moreInfo.getPlatform() == "iOS" then
         local isMuted = display.newText( "is Muted:"..tostring(moreInfo.isMuted()), display.contentCenterX, display.contentCenterY+20,   native.systemFontBold, 15)
         timer.performWithDelay(1000, function()
             isMuted.text = "is Muted:"..tostring(moreInfo.isMuted())
@@ -42,7 +44,9 @@ local isHeadsetPluggedIn = display.newText( "Is headset plugged in:"..tostring(m
 local getBluetoothStatus = display.newText( "Is bluetooth enabled?:"..tostring(moreInfo.isBluetoothEnabled()), display.contentCenterX, display.contentCenterY+100, native.systemFontBold, 15)
 
 timer.performWithDelay(1000, function()
-    keyboardWidth, keyboardHeight = moreInfo.getKeyboardSize()
+    if (type(moreInfo.getKeyboardSize())== "number") then
+        keyboardWidth, keyboardHeight = moreInfo.getKeyboardSize()
+    end
     topOfKeyboard.y = display.actualContentHeight-keyboardHeight-10
 
     keyboardSize.text = "Keyboard Height/Width:"..keyboardWidth.."/"..keyboardHeight
