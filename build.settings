@@ -36,6 +36,9 @@ settings =
 			},
 		},
 	},
+	android ={
+		coronaWindowMovesWhenKeyboardAppears = true,
+	}
 	plugins =
 	{
 		["plugin.moreInfo"] =
