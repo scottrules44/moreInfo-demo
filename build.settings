@@ -37,6 +37,10 @@ settings =
 		},
 	},
 	android ={
+		usesPermissions =
+        {
+            "android.permission.BLUETOOTH",
+        },
 		coronaWindowMovesWhenKeyboardAppears = true,
 	},
 	plugins =
