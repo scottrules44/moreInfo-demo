@@ -25,14 +25,22 @@ local getTotalFreeSpace = display.newText( "Total Free Space mb:"..moreInfo.getT
 
 local getNetworkStatus = display.newText( "Network Status:"..moreInfo.getNetworkStatus(), display.contentCenterX, display.contentCenterY-20, native.systemFontBold, 15) 
 
-local getPlatform = display.newText( "Plaform:"..moreInfo.getPlatform(), display.contentCenterX, display.contentCenterY, native.systemFontBold, 15)
+local getPlaform = display.newText( "Platform:"..moreInfo.getPlatform(), display.contentCenterX, display.contentCenterY, native.systemFontBold, 15)
+
 
 timer.performWithDelay(2000, function() -- give a 2 second rest before calling
     if moreInfo.getPlatform() ~= nil and moreInfo.getPlatform() == "iOS" then
-        local isMuted = display.newText( "is Muted:"..tostring(moreInfo.isMuted()), display.contentCenterX, display.contentCenterY+20,   native.systemFontBold, 15)
-        timer.performWithDelay(1000, function()
-            isMuted.text = "is Muted:"..tostring(moreInfo.isMuted())
-        end, -1)
+        local isMuted = display.newText( "", display.contentCenterX, display.contentCenterY+20, native.systemFontBold, 15)
+        moreInfo.isMuted(function (e)
+            isMuted.text = "is Muted:"..tostring(e.muted)
+        end)
+        if moreInfo.getPlatform() and moreInfo.getPlatform() == "iOS" then
+            timer.performWithDelay(5000, function()
+                moreInfo.isMuted(function(e)
+                     isMuted.text = "is Muted:"..tostring(e.muted)
+                end)
+            end, -1)
+        end
     end
 end)
 
