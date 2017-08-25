@@ -63,5 +63,5 @@ timer.performWithDelay(1000, function()
     getBluetoothStatus.text="Is bluetooth enabled?:"..tostring(moreInfo.isBluetoothEnabled())
 end, -1)
 
-local getSettingFont = display.newText( "Setting Font Size:"..tostring(moreInfo.getSettingFont()), display.contentCenterX, display.contentCenterY+120, native.systemFontBold, 15)
+local getSettingFontSize = display.newText( "Setting Font Size:"..tostring(moreInfo.getSettingFontSize()), display.contentCenterX, display.contentCenterY+120, native.systemFontBold, 15)
 
