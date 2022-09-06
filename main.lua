@@ -22,15 +22,15 @@ local keyboardSize = display.newText( "Keyboard Height/Width:"..keyboardWidth.."
 
 local batteyLevel = display.newText( "battey at:"..moreInfo.getBatteryLevel(), display.contentCenterX, display.contentCenterY-100, native.systemFontBold, 15)
 
-local getBatteryState = display.newText( "battey state:"..moreInfo.getBatteryState(), display.contentCenterX, display.contentCenterY-80, native.systemFontBold, 15) 
+local getBatteryState = display.newText( "battey state:"..moreInfo.getBatteryState(), display.contentCenterX, display.contentCenterY-80, native.systemFontBold, 15)
 
-local getTotalSpace = display.newText( "Total Space mb:"..moreInfo.getTotalSpace(), display.contentCenterX, display.contentCenterY-60, native.systemFontBold, 15) 
+local getTotalSpace = display.newText( "Total Space mb:"..moreInfo.getTotalSpace(), display.contentCenterX, display.contentCenterY-60, native.systemFontBold, 15)
 
-local getTotalFreeSpace = display.newText( "Total Free Space mb:"..moreInfo.getTotalFreeSpace(), display.contentCenterX, display.contentCenterY-40, native.systemFontBold, 15) 
+local getTotalFreeSpace = display.newText( "Total Free Space mb:"..moreInfo.getTotalFreeSpace(), display.contentCenterX, display.contentCenterY-40, native.systemFontBold, 15)
 timer.performWithDelay( 3000, function( )
     print( moreInfo.getNetworkStatus() )
 end, -1)
-local getNetworkStatus = display.newText( "Network Status:"..moreInfo.getNetworkStatus(), display.contentCenterX, display.contentCenterY-20, native.systemFontBold, 15) 
+local getNetworkStatus = display.newText( "Network Status:"..moreInfo.getNetworkStatus(), display.contentCenterX, display.contentCenterY-20, native.systemFontBold, 15)
 
 local getPlaform = display.newText( "Plaform:"..moreInfo.getPlatform(), display.contentCenterX, display.contentCenterY, native.systemFontBold, 15)
 
@@ -69,6 +69,10 @@ end, -1)
 
 local getSettingFontSize = display.newText( "Setting Font Size:"..tostring(moreInfo.getSettingFontSize()), display.contentCenterX, display.contentCenterY+120, native.systemFontBold, 15)
 
-
-
-
+local getAppSetId = display.newText( "App Set Id:", display.contentCenterX, display.contentCenterY+150, native.systemFontBold, 9)
+timer.performWithDelay(3000, function()
+    moreInfo.getAppSetId(function(e)
+         getAppSetId.text = getAppSetId.text..tostring(e.id)
+         print(e.scope)
+    end)
+end, 1)
