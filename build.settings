@@ -47,7 +47,7 @@ settings =
 	{
 		["plugin.moreInfo"] =
         {
-            -- required
+        	marketplaceId = "Replace with your ID",
             publisherId = "tech.scotth",
         },
     },
