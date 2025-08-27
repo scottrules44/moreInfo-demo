@@ -41,7 +41,6 @@ settings =
         {
             "android.permission.BLUETOOTH",
         },
-		coronaWindowMovesWhenKeyboardAppears = true,
 	},
 	plugins =
 	{
